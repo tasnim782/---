@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Background Circle -->
+  <circle cx="250" cy="250" r="230" fill="#0d633d" />
+
+  <!-- Sparkle Top-Right -->
+  <path d="M 315 125 Q 315 142 327 142 Q 315 142 315 159 Q 315 142 303 142 Q 315 142 315 125 Z" fill="#ffffff" />
+  
+  <!-- Sparkle Bottom-Left -->
+  <path d="M 190 235 Q 190 248 199 248 Q 190 248 190 261 Q 190 248 181 248 Q 190 248 190 235 Z" fill="#ffffff" />
+
+  <!-- Isometric Cube (Equipment Box) -->
+  <!-- Top Face -->
+  <polygon points="230,130 295,165 230,200 165,165" fill="none" stroke="#ffffff" stroke-width="11" stroke-linejoin="round" stroke-linecap="round" />
+  <!-- Left Face -->
+  <polygon points="165,165 230,200 230,268 165,233" fill="none" stroke="#ffffff" stroke-width="11" stroke-linejoin="round" stroke-linecap="round" />
+  <!-- Right Face Outline -->
+  <polyline points="230,200 295,165 295,233 230,268" fill="none" stroke="#ffffff" stroke-width="11" stroke-linejoin="round" stroke-linecap="round" />
+
+  <!-- Wrench (Tool) -->
+  <g fill="none" stroke="#ffffff" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Wrench Open Head -->
+    <path d="M 285 200 C 275 192 270 178 274 166 C 278 154 290 146 303 147 C 316 148 327 158 329 171 C 330 178 328 185 324 191" />
+    <!-- Wrench Open Jaw Notch -->
+    <path d="M 283 175 L 297 185 L 315 173" />
+    <!-- Wrench Handle -->
+    <path d="M 292 203 L 292 270 A 10 10 0 0 0 312 270 L 312 203" />
+  </g>
+
+  <!-- Thai Typography -->
+  <text x="250" y="325" text-anchor="middle" fill="#ffffff" font-family="'IBM Plex Sans Thai', sans-serif" font-weight="700" font-size="22" letter-spacing="0.2">
+    ระบบยืม-คืนอุปกรณ์สื่อโสตทัศนูปกรณ์
+  </text>
+
+  <!-- English Subtitle -->
+  <text x="250" y="352" text-anchor="middle" fill="#ffffff" font-family="'IBM Plex Sans Thai', sans-serif" font-weight="500" font-size="12" opacity="0.95" letter-spacing="0.2">
+    (Educational Technology Equipment Borrowing System)
+  </text>
+</svg>

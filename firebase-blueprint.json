@@ -1,0 +1,124 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "studentOrStaffId": { "type": "string" },
+        "department": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "displayName"]
+    },
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Registered administrator identifiers",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "addedBy": { "type": "string" },
+        "addedAt": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "required": ["email"]
+    },
+    "Equipment": {
+      "title": "Equipment",
+      "description": "Educational technology equipment item",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "totalQuantity": { "type": "number" },
+        "availableQuantity": { "type": "number" },
+        "status": { "type": "string", "enum": ["available", "maintenance", "unavailable"] },
+        "imageUrl": { "type": "string" },
+        "description": { "type": "string" },
+        "storageLocation": { "type": "string" },
+        "accessories": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["code", "name", "category", "totalQuantity", "availableQuantity", "status"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Borrowing and reservation records for equipment",
+      "type": "object",
+      "properties": {
+        "equipmentId": { "type": "string" },
+        "equipmentCode": { "type": "string" },
+        "equipmentName": { "type": "string" },
+        "equipmentImageUrl": { "type": "string" },
+        "category": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userPhone": { "type": "string" },
+        "userStudentId": { "type": "string" },
+        "department": { "type": "string" },
+        "quantity": { "type": "number" },
+        "borrowDate": { "type": "string" },
+        "expectedReturnDate": { "type": "string" },
+        "actualReturnDate": { "type": "string" },
+        "purpose": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected", "returned", "cancelled"] },
+        "approvedBy": { "type": "string" },
+        "approvedAt": { "type": "string" },
+        "returnedByAdmin": { "type": "string" },
+        "returnCondition": { "type": "string" },
+        "returnNotes": { "type": "string" },
+        "rejectionReason": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["equipmentId", "userId", "userName", "userEmail", "quantity", "borrowDate", "expectedReturnDate", "purpose", "status"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Administrator activity and audit trail records",
+      "type": "object",
+      "properties": {
+        "adminEmail": { "type": "string" },
+        "adminName": { "type": "string" },
+        "action": { "type": "string" },
+        "targetTitle": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["adminEmail", "action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profiles"
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminRecord" },
+      "description": "Admin access list by user ID or email hash"
+    },
+    "/equipment/{equipmentId}": {
+      "schema": { "$ref": "#/entities/Equipment" },
+      "description": "Equipment catalogue and inventory"
+    },
+    "/bookings/{bookingId}": {
+      "schema": { "$ref": "#/entities/Booking" },
+      "description": "Equipment booking and borrowing request history"
+    },
+    "/audit_logs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Admin activity and security audit history"
+    }
+  }
+}
